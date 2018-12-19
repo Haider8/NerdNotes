@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h1>Articles
+  {% if session.logged_in %}
+  <br>
+    <a class="btn btn-success" href="/add_article">Add Article</a>
+  <a class="btn btn-success" href="/upload">Upload</a></h1>
+  {% else %}
+  </h1>
+<p><a href="/login">Login</a> to submit your articles.</p>
+  {% endif %}
+  <ul class="list-group">
+    {% for article in articles %}
+      <li class="list-group-item"><a href="article/{{article.id}} "> &#9728; {{article.title}}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

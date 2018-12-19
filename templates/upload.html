@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+ <form action="/store" method="post">
+            <h2>UPLOAD IMAGE FILES.</h2>
+     <p style="font-size:150%;">We let you upload image files for easy and faster sharing.</p>
+            <div class="form-group">
+             <label>Title</label>
+            <input type="text" name="title" class="form-control" placeholder="Add a title..."
+            required maxlength="150">
+            </div>
+            <div>
+
+                <input
+                        type="hidden"
+                        name="avatar"
+                        role="uploadcare-uploader"
+                        data-multiple="true"
+                        data-clearable="true"
+                >
+
+            </div>
+
+            <input type="submit" value="Save">
+
+
+        </form>
+        <br>
+        <small>Make sure that the image is clear and upright.</small>
+
+        <script>
+            UPLOADCARE_LOCALE = "en";
+            UPLOADCARE_LIVE = false;
+            UPLOADCARE_PUBLIC_KEY = "79f01218806986ba19f6";  <!--you can have your own key, register on uploadcare-->
+            UPLOADCARE_TABS = "file url camera gdrive gphotos dropbox";
+        </script>
+
+        <script charset="utf-8" src="//ucarecdn.com/libs/widget/3.6.1/uploadcare.full.min.js"></script>
+
+{% endblock %}

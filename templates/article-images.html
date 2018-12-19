@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h1>{{article.title}}</h1>
+<small>Uploaded by {{article.author}} on {{article.create_date}}.</small>
+<hr>
+<div>
+    {% for i in range(article.num_imgs) %}
+    <picture>
+        <source srcset="{{article.url}}nth/{{i}}/-/format/webp/-/quality/lightest/-/progressive/yes/" type="image/webp">
+        <img src="{{article.url}}nth/{{i}}/-/format/auto/-/quality/lightest/-/progressive/yes/" style="width: 100%;" alt="{{article.title}}({{i+1}})"><br>
+            <br>
+    </picture>
+    {% endfor %}
+</div>
+<hr>
+<h3>Comments.</h3>
+
+<form method="post" action="/submit_comment/{{article.id}}">
+<div>
+    <textarea name="body" class="form-control" placeholder="Add a comment..." required></textarea>
+</div>
+<br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<hr>
+
+<ul class="list-group">
+    {% for comment in comments %}
+      <small>&#9982; {{comment.cmt_by}} &#9899; {{comment.cmt_date}}</small>
+      <li class="list-group-item">{{comment.body}}</li>
+      <br>
+    {% endfor %}
+</ul>
+
+{% endblock %}

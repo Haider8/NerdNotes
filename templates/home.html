@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<head>
+    <meta charset="UTF-8">
+    <title>flask_app</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<div class="jumbotron text-center">
+    <h1>Welcome to NerdNotes</h1>
+    <p class="lead">This application is based on the python flask framework. Developed by Haider.</p>
+    <p class="lead">Let's you share and upload articles, notes, poetry.</p>
+    {% if session.logged_in == NULL %}
+      <a href="/register" class="btn btn-primary btn-lg">Register</a>
+      <a href="/login" class="btn btn-success btn-lg">Login</a> <!--btn-lg makes a button bigger-->
+    {% endif %}
+</div>
+{% endblock %}

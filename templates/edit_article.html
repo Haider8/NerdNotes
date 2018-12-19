@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Edit Article</h1>
+
+  {% from "includes/_formhelpers.html" import render_field %}
+  <form method="POST" action="">
+      <div class="form-group">  <!--bootsrap class form-group-->
+          {{render_field(form.title, class="form-control")}}
+      </div>
+      {% if article.body %}
+      <div class="form-group">
+          {{render_field(form.body, class="form-control", id="editor")}}
+      </div>
+      {% endif %}
+      <div>
+      <input type="submit" class="btn btn-primary" value="Submit"> <!--bootsrap class btn btn-primary-->
+      <a href="/dashboard" class="btn btn-default pull-right">Cancel</a>
+      </div>
+  </form>
+
+    <script src="//cdn.ckeditor.com/4.11.1/basic/ckeditor.js"></script>
+    <script type="text/javascript">
+        CKEDITOR.replace('editor')
+    </script>
+{% endblock %}
