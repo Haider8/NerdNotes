@@ -1,6 +1,7 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+*.pyc
 *$py.class
 
 # C extensions
@@ -84,6 +85,9 @@ celerybeat-schedule
 # Environments
 .env
 .venv
+.idea
+*.idea
+idea/
 env/
 venv/
 ENV/
